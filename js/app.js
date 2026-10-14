@@ -177,7 +177,7 @@
               <span class="level-number-badge">0${level.num}</span>
             </div>
             <h3 class="level-age">${level.name}</h3>
-            <div class="level-tagline">${level.age}</div>
+            <div class="level-tagline">Уровень ${level.num} сложности</div>
             <p class="level-description">${level.description}</p>
             <div class="level-footer">
               <span class="level-stat">${icons.box} ${level.modelsCount} моделей</span>
@@ -206,7 +206,7 @@
         </div>
         <h2 class="hero-title">Каталог авторских материалов<br>по <span>робототехнике</span></h2>
         <p class="hero-desc">
-          Интерактивная библиотека пошаговых инструкций и программ для детей от 3 до 7 лет.
+          Интерактивная библиотека пошаговых инструкций и программ по 4 уровням сложности.
           От первых механических передач до самостоятельного программирования.
         </p>
         <div class="hero-stats">
@@ -221,7 +221,7 @@
             <div class="hero-stat-icon-wrap">${icons.layers}</div>
             <div class="hero-stat-info">
               <span class="hero-stat-number">${db.levels.length}</span>
-              <span class="hero-stat-label">Уровня обучения</span>
+              <span class="hero-stat-label">Уровня сложности</span>
             </div>
           </div>
           <div class="hero-stat-card">
@@ -263,7 +263,7 @@
           ${db.levels.map(level => `
             <button class="filter-pill ${state.filterLevel === level.id ? 'active' : ''}" data-filter="${level.id}">
               <span class="pill-dot" style="background:${level.color};"></span>
-              ${level.age} (${level.modelsCount})
+              ${level.name} (${level.modelsCount})
             </button>
           `).join('')}
         </div>
@@ -294,8 +294,8 @@
       ` : `
         <div class="section-title-wrap animate-fade-up">
           <div>
-            <h3 class="section-title">Возрастные уровни обучения</h3>
-            <p class="section-subtitle">Выберите возрастную группу для перехода к инструкциям и программам</p>
+            <h3 class="section-title">Уровни обучения</h3>
+            <p class="section-subtitle">Выберите уровень сложности для перехода к инструкциям и программам</p>
           </div>
         </div>
         ${levelsHtml}
@@ -365,7 +365,7 @@
           <span class="robot-number-pill">#${robot.topicNumber}</span>
           <span class="robot-level-pill" style="color: ${level.color};">
             <span class="level-indicator-dot" style="background:${level.color};"></span>
-            ${robot.age}
+            ${level.name || robot.age}
           </span>
           <img src="${coverUrl}" alt="${escapeHtml(robot.name)}" class="robot-card-image" loading="lazy"
                onerror="this.src='${getSafeImg('')}'">
@@ -450,15 +450,16 @@
       <nav class="breadcrumbs" aria-label="Хлебные крошки">
         <a href="#home" class="breadcrumb-item">${icons.home} Главная</a>
         <span class="breadcrumb-separator">/</span>
-        <span class="breadcrumb-item">${escapeHtml(level.name)}</span>
-        <span class="breadcrumb-separator">/</span>
-        <span class="breadcrumb-item active">${escapeHtml(level.age)}</span>
+        <span class="breadcrumb-item active">${escapeHtml(level.name)}</span>
       </nav>
 
       <!-- Level Banner -->
       <div class="level-banner" style="--level-banner-color: ${level.color};">
         <div class="level-banner-info">
-          <h2>${escapeHtml(level.name)} (${escapeHtml(level.age)})</h2>
+          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.4rem;">
+            <span class="level-badge" style="background:${level.accent};color:${level.color};font-size:0.85rem;padding:0.25rem 0.75rem;">${escapeHtml(level.tag)}</span>
+          </div>
+          <h2>${escapeHtml(level.name)}</h2>
           <p>${escapeHtml(level.description)}</p>
         </div>
         <div class="level-banner-badges">
@@ -505,7 +506,7 @@
               <span class="empty-state-icon">${icons.brick}</span>
               <h3>Начальный уровень конструирования</h3>
               <p>${level.id === 'level-1'
-                ? 'Для возрастной группы 3–4 года образовательная программа сфокусирована на развитии моторики, пространственного мышления и сборке базовых механических конструкций (без электронного программирования).'
+                ? 'Для 1 уровня образовательная программа сфокусирована на развитии моторики, пространственного мышления и сборке базовых механических конструкций (без электронного программирования).'
                 : 'Для данного уровня программы оформляются педагогом в процессе занятий.'}</p>
             </div>
           `}
@@ -542,7 +543,7 @@
       <nav class="breadcrumbs" aria-label="Хлебные крошки">
         <a href="#home" class="breadcrumb-item">${icons.home} Главная</a>
         <span class="breadcrumb-separator">/</span>
-        <a href="#${level.id}" class="breadcrumb-item">${escapeHtml(level.name)} (${escapeHtml(level.age)})</a>
+        <a href="#${level.id}" class="breadcrumb-item">${escapeHtml(level.name)}</a>
         <span class="breadcrumb-separator">/</span>
         <a href="#${level.id}" class="breadcrumb-item">Инструкции</a>
         <span class="breadcrumb-separator">/</span>
@@ -557,7 +558,7 @@
                onerror="this.style.display='none'">
           <div class="level-banner-info">
             <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.35rem;">
-              <span class="level-badge" style="background:${level.accent};color:${level.color};">${escapeHtml(robot.age)}</span>
+              <span class="level-badge" style="background:${level.accent};color:${level.color};">${escapeHtml(level.name || robot.age)}</span>
               <span class="meta-tag">Тема #${robot.topicNumber}</span>
             </div>
             <h2 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;">${escapeHtml(robot.name)}</h2>
@@ -825,8 +826,9 @@
     if (!robot || !robot.program) return;
 
     const prog = robot.program;
+    const level = getLevel(robot.levelId);
     modalProgramTitle.textContent = `${prog.programTitle || robot.name} (Тема #${prog.topicNumber || robot.topicNumber})`;
-    modalProgramSubtitle.textContent = `Робот: ${robot.name} • Уровень: ${robot.age}`;
+    modalProgramSubtitle.textContent = `Робот: ${robot.name} • ${level ? level.name : robot.age}`;
 
     modalProgramBody.innerHTML = `
       <div style="display:flex;justify-content:flex-end;margin-bottom:1.25rem;">
