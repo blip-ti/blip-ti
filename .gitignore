@@ -16,3 +16,8 @@ node_modules/
 
 # Build artifacts
 *.bak
+
+# Heavy raw source schemas (2.3 GB) - web assets are already in assets/
+Схемы/
+*.docx
+~$*.docx
