@@ -1,0 +1,12 @@
+﻿{
+    "totalRobots":  138,
+    "totalFilesScanned":  147,
+    "level1Count":  29,
+    "level2Count":  36,
+    "level3Count":  37,
+    "level4Count":  36,
+    "withInstructions":  138,
+    "withPrograms":  109,
+    "withCovers":  138,
+    "withoutPrograms":  29
+}

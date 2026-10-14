@@ -1,0 +1,18 @@
+# Scripts and credentials
+scripts/
+
+# Temporary files
+*.tmp
+*.tmp_r
+*.rctmp
+
+# OS files
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Node (if ever added)
+node_modules/
+
+# Build artifacts
+*.bak

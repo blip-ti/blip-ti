@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Робототехника LEGO Education WeDo 2.0 | Авторский каталог инструкций и программ</title>
+  <meta name="description" content="Полный интерактивный каталог авторских материалов по робототехнике LEGO Education WeDo 2.0: 138 моделей, 4 возрастных уровня (3–7 лет), пошаговые инструкции сборки и схемы программ для педагогов, родителей и детей.">
+  <meta name="keywords" content="LEGO WeDo 2.0, робототехника, инструкции сборки, программирование для детей, образование, WeDo каталог">
+  <meta name="author" content="Авторские материалы WeDo 2.0">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Робототехника LEGO Education WeDo 2.0 — Авторский каталог">
+  <meta property="og:description" content="138 моделей роботов, 4 возрастных уровня, пошаговые инструкции и программы для детей 3–7 лет.">
+  <meta property="og:type" content="website">
+
+  <!-- Preconnect for Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Favicon (LEGO-style SVG with Warm Red-Amber Gradient) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%25' stop-color='%23e11d48'/><stop offset='60%25' stop-color='%23ea580c'/><stop offset='100%25' stop-color='%23f59e0b'/></linearGradient></defs><rect width='100' height='100' rx='22' fill='url(%23g)'/><circle cx='32' cy='32' r='14' fill='white' opacity='0.92'/><circle cx='68' cy='32' r='14' fill='white' opacity='0.92'/><circle cx='32' cy='68' r='14' fill='white' opacity='0.92'/><circle cx='68' cy='68' r='14' fill='white' opacity='0.92'/></svg>">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Ambient Dynamic Background -->
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <div class="bg-glow bg-glow-3"></div>
+    <div class="bg-glow bg-glow-4"></div>
+    <div class="bg-grid-pattern"></div>
+    <div class="bg-studs-watermark"></div>
+  </div>
+
+  <!-- Site Header -->
+  <header class="header" role="banner">
+    <div class="header-top-accent"></div>
+    <div class="header-container">
+      <div class="logo-group" id="headerLogoBtn" title="На главную" role="button" tabindex="0" aria-label="Перейти на главную страницу">
+        <div class="logo-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="24" height="24" rx="6" fill="url(#logoG)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+            <circle cx="9" cy="9" r="3.2" fill="#ffffff" fill-opacity="0.95"/>
+            <circle cx="19" cy="9" r="3.2" fill="#ffffff" fill-opacity="0.95"/>
+            <circle cx="9" cy="19" r="3.2" fill="#ffffff" fill-opacity="0.95"/>
+            <circle cx="19" cy="19" r="3.2" fill="#ffffff" fill-opacity="0.95"/>
+            <defs>
+              <linearGradient id="logoG" x1="2" y1="2" x2="26" y2="26" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#ffffff" stop-opacity="0.25"/>
+                <stop offset="1" stop-color="#000000" stop-opacity="0.15"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <div class="logo-title-row">
+            <h1>Робототехника WeDo 2.0</h1>
+            <span class="logo-badge">Pro</span>
+          </div>
+          <p>Авторский каталог инструкций и программ</p>
+        </div>
+      </div>
+
+      <nav class="header-nav" id="mainNav" aria-label="Основная навигация">
+        <a href="#home" class="nav-link active" data-nav="home">
+          <svg class="ui-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <span>Главная</span>
+        </a>
+        <a href="#level-1" class="nav-link" data-nav="level-1">
+          <span class="nav-dot dot-l1"></span>
+          <span>3–4 года</span>
+        </a>
+        <a href="#level-2" class="nav-link" data-nav="level-2">
+          <span class="nav-dot dot-l2"></span>
+          <span>4–5 лет</span>
+        </a>
+        <a href="#level-3" class="nav-link" data-nav="level-3">
+          <span class="nav-dot dot-l3"></span>
+          <span>5–6 лет</span>
+        </a>
+        <a href="#level-4" class="nav-link" data-nav="level-4">
+          <span class="nav-dot dot-l4"></span>
+          <span>6–7 лет</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Area (Dynamic views rendered by JavaScript) -->
+  <main class="main-content" id="appRoot" role="main">
+    <!-- Initial loading state -->
+    <div class="empty-state" style="margin-top: 4rem;">
+      <span class="empty-state-icon">
+        <svg class="loading-spinner-svg" viewBox="0 0 50 50" width="48" height="48">
+          <circle cx="25" cy="25" r="20" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="80" stroke-dashoffset="60" stroke-linecap="round"></circle>
+        </svg>
+      </span>
+      <h3>Загрузка каталога материалов…</h3>
+      <p>Считывание данных 138 моделей, инструкций и программ</p>
+    </div>
+  </main>
+
+  <!-- Global Modal (Program viewer / Lightbox) -->
+  <div class="modal-overlay" id="programModal" role="dialog" aria-modal="true" aria-labelledby="modalProgramTitle">
+    <div class="modal-window">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <h3 id="modalProgramTitle">Программа робота</h3>
+          <p id="modalProgramSubtitle">LEGO Education WeDo 2.0</p>
+        </div>
+        <button class="modal-close-btn" id="modalCloseBtn" aria-label="Закрыть окно">
+          <svg class="ui-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body" id="modalProgramBody">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-container">
+      <p><strong>Робототехника LEGO Education WeDo 2.0</strong> — Авторская образовательная библиотека схем сборки и алгоритмов</p>
+      <p style="margin-top: 0.5rem; opacity: 0.65;">138 моделей роботов &bull; 4 возрастных уровня &bull; 3–7 лет &bull; Пошаговые инструкции &bull; Схемы программ</p>
+    </div>
+  </footer>
+
+  <script src="data/database.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
