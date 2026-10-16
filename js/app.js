@@ -137,11 +137,9 @@
     return encodeURI(imgPath);
   }
 
-  // Check if a file path is actually hosted on GitHub Pages
-  // Схемы/ PDFs are excluded from git (2.4 GB) — not available for download
+  // Check if a file path is provided (non-empty)
   function isDownloadable(filePath) {
     if (!filePath) return false;
-    if (filePath.startsWith('Схемы/')) return false;
     return true;
   }
 
