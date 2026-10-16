@@ -137,6 +137,14 @@
     return encodeURI(imgPath);
   }
 
+  // Check if a file path is actually hosted on GitHub Pages
+  // Схемы/ PDFs are excluded from git (2.4 GB) — not available for download
+  function isDownloadable(filePath) {
+    if (!filePath) return false;
+    if (filePath.startsWith('Схемы/')) return false;
+    return true;
+  }
+
   function legoDotsHtml(rows, cols) {
     let dots = '';
     for (let i = 0; i < rows * cols; i++) {
@@ -380,7 +388,7 @@
             <button class="btn-primary" onclick="window.location.hash='#robot/${robot.id}'">
               ${icons.book} Схема сборки
             </button>
-            ${origFile ? `
+            ${isDownloadable(origFile) ? `
               <button class="btn-secondary btn-icon-only"
                       onclick="window.downloadResource('${origFile}', '${escapeHtml(fileName)}')"
                       title="Скачать файл инструкции (${escapeHtml(fileName)})">
@@ -425,7 +433,7 @@
             <button class="btn-primary btn-program" onclick="window.openProgramModal('${robot.id}')">
               ${icons.eye} Открыть код
             </button>
-            ${prog.originalFile ? `
+            ${isDownloadable(prog.originalFile) ? `
               <button class="btn-secondary btn-icon-only" onclick="window.downloadResource('${prog.originalFile}', '${escapeHtml(prog.originalFile.split('/').pop())}')" title="Скачать DOCX">
                 ${icons.download}
               </button>
@@ -569,7 +577,7 @@
           </div>
         </div>
         <div class="level-banner-badges">
-          ${robot.instruction?.originalFile ? `
+          ${isDownloadable(robot.instruction?.originalFile) ? `
             <button class="btn-primary" onclick="window.downloadResource('${robot.instruction.originalFile}', '${escapeHtml(robot.instruction.fileName || '')}')">
               ${icons.download} Скачать файл (${(robot.instruction.fileType || 'PDF').toUpperCase()})
             </button>
@@ -643,7 +651,7 @@
               </div>
               <h3 class="section-title" style="font-size:1.5rem;">${escapeHtml(robot.program.programTitle || robot.name)}</h3>
             </div>
-            ${robot.program.originalFile ? `
+            ${isDownloadable(robot.program.originalFile) ? `
               <button class="btn-primary btn-program"
                       onclick="window.downloadResource('${robot.program.originalFile}', '${escapeHtml(robot.program.originalFile.split('/').pop())}')">
                 ${icons.download} Скачать сборник программ
@@ -832,7 +840,7 @@
 
     modalProgramBody.innerHTML = `
       <div style="display:flex;justify-content:flex-end;margin-bottom:1.25rem;">
-        ${prog.originalFile ? `
+        ${isDownloadable(prog.originalFile) ? `
           <button class="btn-primary btn-program" style="padding:0.55rem 1.25rem;flex:0;"
                   onclick="window.downloadResource('${prog.originalFile}', '${escapeHtml(prog.originalFile.split('/').pop())}')">
             ${icons.download} Скачать DOCX

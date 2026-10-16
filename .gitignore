@@ -19,5 +19,5 @@ node_modules/
 
 # Heavy raw source schemas (2.3 GB) - web assets are already in assets/
 Схемы/
-*.docx
+# Only exclude Word temp files, the actual .docx files are needed for download
 ~$*.docx
