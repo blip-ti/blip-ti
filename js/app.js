@@ -941,14 +941,15 @@
   };
 
   // Download Trigger
+  // Note: GitHub Pages does not set Content-Disposition headers, so
+  // `<a download>` is blocked by browsers for cross-origin or no-header responses.
+  // We use window.open() so the browser handles the file natively (download dialog).
   window.downloadResource = function (filePath, fileName) {
     if (!filePath) return;
-    const link = document.createElement('a');
-    link.href = encodeURI(filePath);
-    link.download = fileName || filePath.split('/').pop();
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    // Build absolute URL to avoid any base-path issues
+    const baseUrl = window.location.origin + window.location.pathname.replace(/\/#.*$/, '').replace(/#.*$/, '');
+    const absUrl = encodeURI(filePath.startsWith('http') ? filePath : baseUrl + '/' + filePath);
+    window.open(absUrl, '_blank');
   };
 
   // Escape HTML
